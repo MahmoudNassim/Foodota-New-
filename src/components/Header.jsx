@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/images/logo.png";
 import blackLogo from "../assets/images/logoblack.svg";
-import { TbMenu3 } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Drawer from "./Drawer";
 
-export default function Header({ linkClassName = "" }) {
+export default function Header({ linkClassName = "", menuColor = "" }) {
   const [isFixed, setIsFixed] = useState(false);
 
   const changeTextColor = isFixed ? "text-black" : linkClassName;
@@ -25,7 +25,7 @@ export default function Header({ linkClassName = "" }) {
           : "static "
       }`}
     >
-      <div className="container max-w-7xl mx-auto  flex items-center justify-center max-lg:justify-between gap-8 py-4 px-4">
+      <div className="container max-w-7xl mx-auto flex items-center justify-between py-4 px-4">
         <div className="w-[190px]">
           <img src={isFixed ? blackLogo : logo} alt="Logo" />
         </div>
@@ -34,12 +34,12 @@ export default function Header({ linkClassName = "" }) {
           <Link to={"/"} className={`cursor-pointer ${changeTextColor}`}>
             Home Page
           </Link>
-          <Link
+          {/* <Link
             to={"/resturaunt"}
             className={`cursor-pointer ${changeTextColor}`}
           >
             Single Restaurant
-          </Link>
+          </Link> */}
           <Link to={"/"} className={`cursor-pointer ${changeTextColor}`}>
             Registration
           </Link>
@@ -54,11 +54,16 @@ export default function Header({ linkClassName = "" }) {
           </Link>
         </div>
 
-        <button className="max-xl:hidden btn btn-warning p-[26px] text-black text-[20px] mr-[20px]">
-          Restaurant Search
-        </button>
+        <Link
+          to="/dashboard"
+          className="max-xl:hidden btn btn-warning p-[26px] text-black text-[20px] mr-[20px]"
+        >
+          User Dashboard
+        </Link>
 
-        <TbMenu3 className="min-xl:hidden mr-[20px] text-3xl cursor-pointer" />
+        <div>
+          <Drawer menuColor={menuColor} />
+        </div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function HeroSection() {
         className="heroSection   bg-cover bg-no-repeat  flex flex-col w-full"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <Header linkClassName="text-white" />
+        <Header linkClassName="text-white" menuColor={"text-white"} />
         <MainContent />
       </div>
     </div>
