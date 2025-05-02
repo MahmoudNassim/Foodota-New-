@@ -8,10 +8,13 @@ export default function DeliciousDeal() {
   useEffect(() => {
     setProducts();
   }, []);
+  useEffect(() => {
+    console.log(products);
+  });
 
   const navigate = useNavigate();
   return (
-    <div className="max-w-7xl mx-auto container min-md:p-10 flex justify-center flex-col items-center">
+    <div className="max-w-7xl mx-auto container min-md:p-10 flex justify-center flex-col items-center mb-7 p-4">
       <div className="flex flex-col gap-1.5  w-full">
         <p className="text-center text-[16px] text-warning font-bold">
           Delicious Food in
@@ -26,8 +29,10 @@ export default function DeliciousDeal() {
 
       <div className="mt-8 grid max-md:grid-cols-1 max-xl:grid-cols-2 grid-cols-4 gap-5">
         {products
-          .filter(
-            (el) => el.restaurant[0].brand_name === "Masterchef Chinese Food"
+          .filter((el) =>
+            el.restaurant.some(
+              (el) => el.brand_name === "Masterchef Chinese Food"
+            )
           )
           .map((el) => (
             <div
@@ -45,7 +50,7 @@ export default function DeliciousDeal() {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title text-[24px] font-semibold leading-9">
+                <h2 className="card-title text-blue-600 text-[24px] font-semibold leading-9">
                   {el.product_name}
                 </h2>
                 <p className="text-[16px] font-normal leading-7 text-gray-500">

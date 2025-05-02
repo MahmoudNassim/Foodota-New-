@@ -9,6 +9,7 @@ import AllVendors from "./pages/AllVendors";
 import ArrowUp from "./components/ArrowUp";
 import { Route, Routes, useLocation } from "react-router-dom";
 import RestaurantPage from "./pages/RestaurantPage";
+import RegisterPage from "./pages/RegisterPage";
 
 export default function App() {
   const location = useLocation();
@@ -19,6 +20,7 @@ export default function App() {
       {!hideHeader && <Header linkClassName="text-black" />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/allvendors" element={<AllVendors />} />
         <Route path="/restaurant/:documentId" element={<RestaurantPage />} />

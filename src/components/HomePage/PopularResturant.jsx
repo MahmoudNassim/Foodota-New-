@@ -13,7 +13,7 @@ export default function PopularResturant() {
   const navigate = useNavigate();
   return (
     <div className="bg-[#F2F2F2] w-full my-10">
-      <div className="max-w-7xl mx-auto container min-md:p-10 flex justify-center flex-col items-center ">
+      <div className="max-w-7xl mx-auto container min-md:p-10 flex justify-center flex-col items-center p-4 ">
         <div className="flex flex-col gap-1.5  w-full">
           <p className="text-center text-[16px] text-warning font-bold">
             Delicious Food in

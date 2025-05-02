@@ -40,7 +40,10 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
           >
             Single Restaurant
           </Link> */}
-          <Link to={"/"} className={`cursor-pointer ${changeTextColor}`}>
+          <Link
+            to={"/register"}
+            className={`cursor-pointer ${changeTextColor}`}
+          >
             Registration
           </Link>
           <Link to={"/blog"} className={`cursor-pointer ${changeTextColor}`}>
@@ -55,10 +58,10 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
         </div>
 
         <Link
-          to="/dashboard"
+          to="/allvendors"
           className="max-xl:hidden btn btn-warning p-[26px] text-black text-[20px] mr-[20px]"
         >
-          User Dashboard
+          Restaurant Search
         </Link>
 
         <div>
