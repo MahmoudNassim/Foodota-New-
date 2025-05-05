@@ -25,7 +25,6 @@ export const storeUser = async (values) => {
         icon: "error",
         title: "Oops...",
         text: e?.response?.data?.error?.message,
-        footer: '<a href="#">Why do I have this issue?</a>',
       });
     });
   return final;

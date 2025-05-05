@@ -104,7 +104,10 @@ export default function RegisterPage() {
             className="text-red-500"
           />
 
-          <button type="submit" className="btn btn-warning">
+          <button
+            type="submit"
+            className="btn btn-warning text-black font-bold hover:bg-black hover:text-white transition-all duration-[400ms]"
+          >
             Register
           </button>
         </Form>

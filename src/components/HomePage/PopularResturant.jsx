@@ -29,7 +29,7 @@ export default function PopularResturant() {
           {restaurants.map((el) => (
             <div
               onClick={() => {
-                navigate(`/restaurant/${el.documentId}`);
+                navigate(`/restaurants/${el.documentId}`);
               }}
               key={el.documentId}
               className="card bg-base-100 shadow-sm  cursor-pointer "

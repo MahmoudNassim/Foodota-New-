@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/images/logo.png";
-import blackLogo from "../assets/images/logoblack.svg";
+import logo from "../../assets/images/logo.png";
+import blackLogo from "../../assets/images/logoblack.svg";
 import { Link } from "react-router-dom";
-import Drawer from "./Drawer";
+import Drawer from "../Drawer";
+import RegisterAccordion from "./RegisterAccod";
 
 export default function Header({ linkClassName = "", menuColor = "" }) {
   const [isFixed, setIsFixed] = useState(false);
@@ -16,6 +17,18 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const [token, setToken] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setToken(token);
+  });
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setToken("");
+  };
 
   return (
     <div
@@ -40,17 +53,24 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
           >
             Single Restaurant
           </Link> */}
-          <Link
-            to={"/register"}
-            className={`cursor-pointer ${changeTextColor}`}
-          >
-            Registration
-          </Link>
+
+          {token ? (
+            <p
+              className={`cursor-pointer ${changeTextColor}`}
+              onClick={handleLogout}
+            >
+              Logout
+            </p>
+          ) : (
+            <div className={`cursor-pointer ${changeTextColor}`}>
+              <RegisterAccordion changeTextColor={changeTextColor} />
+            </div>
+          )}
           <Link to={"/blog"} className={`cursor-pointer ${changeTextColor}`}>
             Blog
           </Link>
           <Link
-            to={"/allvendors"}
+            to={"/restaurants"}
             className={`cursor-pointer ${changeTextColor}`}
           >
             All Vendors
@@ -58,7 +78,7 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
         </div>
 
         <Link
-          to="/allvendors"
+          to="/restaurants"
           className="max-xl:hidden btn btn-warning p-[26px] text-black text-[20px] mr-[20px]"
         >
           Restaurant Search

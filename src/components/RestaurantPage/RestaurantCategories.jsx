@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import span from "../../assets/images/span.png";
 import { useParams } from "react-router-dom";
 import { domain, useProducts } from "../../store/store";
+
 export default function RestaurantCategories() {
   const { products, setProducts } = useProducts();
   const location = useParams();

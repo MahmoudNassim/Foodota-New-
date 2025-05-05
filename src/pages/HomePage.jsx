@@ -9,8 +9,6 @@ import TeamMember from "../components/HomePage/TeamMember";
 import TakeAway from "../components/HomePage/TakeAway";
 import NewArrival from "../components/HomePage/NewArrival";
 import HomeSlides from "../components/HomePage/HomeSlides";
-import Footer from "../components/Footer";
-import { RestRepo } from "../data/repo/RestRepo";
 
 export default function HomePage() {
   return (

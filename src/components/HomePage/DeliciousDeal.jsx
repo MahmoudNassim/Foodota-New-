@@ -8,9 +8,6 @@ export default function DeliciousDeal() {
   useEffect(() => {
     setProducts();
   }, []);
-  useEffect(() => {
-    console.log(products);
-  });
 
   const navigate = useNavigate();
   return (
@@ -27,7 +24,7 @@ export default function DeliciousDeal() {
         </div>
       </div>
 
-      <div className="mt-8 grid max-md:grid-cols-1 max-xl:grid-cols-2 grid-cols-4 gap-5">
+      <div className="mt-8 grid max-md:grid-cols-1 max-xl:grid-cols-2 grid-cols-3 gap-5">
         {products
           .filter((el) =>
             el.restaurant.some(

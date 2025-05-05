@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Header";
 import bg from "../../assets/images/bg.jpg";
 import MainContent from "./MainContent";
+import Header from "../Header/Header";
 export default function HeroSection() {
   return (
     <div className="w-[100%]">

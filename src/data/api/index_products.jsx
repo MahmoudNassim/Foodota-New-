@@ -11,7 +11,6 @@ export const indexProducts = async () => {
     })
     .then((res) => {
       final = res.data.data;
-      console.log(final);
     });
   return final;
 };

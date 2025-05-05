@@ -57,7 +57,7 @@ export default function AllVendors() {
             {filteredRestaurants.map((el) => (
               <div
                 onClick={() => {
-                  navigate(`/restaurant/${el.documentId}`);
+                  navigate(`/restaurants/${el.documentId}`);
                 }}
                 key={el.documentId}
                 className="card bg-base-100 shadow-sm min-md:col-span-2 cursor-pointer "
