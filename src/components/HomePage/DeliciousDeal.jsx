@@ -36,7 +36,7 @@ export default function DeliciousDeal() {
               key={el.documentId}
               className="card bg-base-100 shadow-sm hover:shadow-2xl cursor-pointer"
               onClick={() => {
-                navigate(`/restaurant/${el.restaurant[0].documentId}`);
+                navigate(`/restaurants/${el.restaurant[0].documentId}`);
               }}
             >
               <figure>

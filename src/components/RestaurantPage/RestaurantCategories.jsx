@@ -6,7 +6,7 @@ import { domain, useProducts } from "../../store/store";
 export default function RestaurantCategories() {
   const { products, setProducts } = useProducts();
   const location = useParams();
-  const path = location.documentId;
+  const path = location.documentId; //Food20%Italian
 
   useEffect(() => {
     setProducts();
@@ -52,7 +52,7 @@ export default function RestaurantCategories() {
                       className="w-[50px] h-[30px]  rounded border border-gray-300 px-1"
                     />
                     <button className="btn btn-warning text-black hover:bg-black hover:text-white transition-all duration-[400ms] px-3 py-1 max-md:w-[100px] max-md:h-[40px]">
-                      Order Food
+                      Add to Cart
                     </button>
                   </div>
                 </div>

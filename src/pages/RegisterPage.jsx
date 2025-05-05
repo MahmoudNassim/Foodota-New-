@@ -29,13 +29,18 @@ export default function RegisterPage() {
   const handleSubmit = (values) => {
     AuthRepo.register(values).then((res) => {
       if (res) {
+        console.log(res);
+        console.log("token : ", res.jwt);
+        console.log("user : ", res.user);
+
+        localStorage.setItem("token", res.jwt);
+        localStorage.setItem("user", JSON.stringify(res.user));
         Swal.fire({
           icon: "success",
           title: "You have registered successfully",
           showConfirmButton: false,
           timer: 1500,
         });
-        sessionStorage.setItem("token", res.jwt);
         navigat("/");
       }
     });

@@ -9,6 +9,7 @@ import RestaurantPage from "./pages/RestaurantPage";
 import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/Header/Header";
 import LoginPage from "./pages/LoginPage";
+import Profile from "./pages/OrderPage";
 
 export default function App() {
   const location = useLocation();
@@ -19,6 +20,7 @@ export default function App() {
       {!hideHeader && <Header linkClassName="text-black" />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/orders" element={<Profile />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/blog" element={<Blog />} />

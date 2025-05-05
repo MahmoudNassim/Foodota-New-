@@ -4,6 +4,7 @@ import blackLogo from "../../assets/images/logoblack.svg";
 import { Link } from "react-router-dom";
 import Drawer from "../Drawer";
 import RegisterAccordion from "./RegisterAccod";
+import ProfileAccord from "../Profile/ProfileAccord";
 
 export default function Header({ linkClassName = "", menuColor = "" }) {
   const [isFixed, setIsFixed] = useState(false);
@@ -25,11 +26,6 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
     setToken(token);
   });
 
-  const handleLogout = () => {
-    localStorage.clear();
-    setToken("");
-  };
-
   return (
     <div
       className={`w-full z-50 transition-all   duration-300 ${
@@ -47,25 +43,7 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
           <Link to={"/"} className={`cursor-pointer ${changeTextColor}`}>
             Home Page
           </Link>
-          {/* <Link
-            to={"/resturaunt"}
-            className={`cursor-pointer ${changeTextColor}`}
-          >
-            Single Restaurant
-          </Link> */}
 
-          {token ? (
-            <p
-              className={`cursor-pointer ${changeTextColor}`}
-              onClick={handleLogout}
-            >
-              Logout
-            </p>
-          ) : (
-            <div className={`cursor-pointer ${changeTextColor}`}>
-              <RegisterAccordion changeTextColor={changeTextColor} />
-            </div>
-          )}
           <Link to={"/blog"} className={`cursor-pointer ${changeTextColor}`}>
             Blog
           </Link>
@@ -75,6 +53,13 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
           >
             All Vendors
           </Link>
+          {token ? (
+            <ProfileAccord changeTextColor={changeTextColor} />
+          ) : (
+            <div className={`cursor-pointer ${changeTextColor}`}>
+              <RegisterAccordion changeTextColor={changeTextColor} />
+            </div>
+          )}
         </div>
 
         <Link
