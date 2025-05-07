@@ -1,3 +1,4 @@
+import { tokenCheck } from "../api/check_token";
 import { loginUser } from "../api/loginUser";
 import { storeUser } from "../api/store_user";
 
@@ -7,5 +8,8 @@ export const AuthRepo = {
   },
   login: async (values) => {
     return loginUser(values);
+  },
+  checktoken: async (token) => {
+    return tokenCheck(token);
   },
 };

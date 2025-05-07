@@ -51,7 +51,11 @@ export default function RestaurantCategories() {
           <span className="absolute top-[46px] left-0 w-full h-[2px] border-b-[3px] border-[#f3f5ff] content-['']"></span>
         </div>
         {products
-          .filter((el) => el.restaurant[0].documentId === path)
+          .filter(
+            (el) =>
+              el.restaurant &&
+              el.restaurant.some((rest) => rest.documentId === path)
+          )
           .map((el) => (
             <React.Fragment key={el.documentId}>
               <div className="flex max-md:flex-col max-md:items-center gap-3 mt-10">
@@ -69,12 +73,6 @@ export default function RestaurantCategories() {
                     £ {el.product_price}
                   </p>
                   <div className="flex justify-center items-center gap-2 mt-4">
-                    {/* <input
-                      type="number"
-                      defaultValue={1}
-                      min={1}
-                      className="w-[50px] h-[30px]  rounded border border-gray-300 px-1"
-                    /> */}
                     <button
                       onClick={() => {
                         AddTtoCart(el);

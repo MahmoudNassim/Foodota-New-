@@ -28,7 +28,10 @@ export default function LoginPage() {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        let redirect = sessionStorage.getItem("redirect");
+        redirect === "checkout"
+          ? navigate("/restaurants/orders/checkout")
+          : navigate("/");
       }
     });
   };

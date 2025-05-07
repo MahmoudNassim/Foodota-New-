@@ -20,7 +20,7 @@ export default function Drawer({ menuColor }) {
 
   const handleLogout = () => {
     localStorage.clear();
-    setToken("");
+    sessionStorage.clear();
   };
 
   return (
@@ -54,7 +54,7 @@ export default function Drawer({ menuColor }) {
             {token && (
               <li>
                 <Link
-                  to={"/orders"}
+                  to={"/restaurants/orders"}
                   className="text-lg font-medium py-3 px-2 rounded hover:bg-base-300 transition flex items-center gap-2"
                 >
                   <FaCartShopping />
@@ -68,7 +68,7 @@ export default function Drawer({ menuColor }) {
             <li>
               <Link
                 onClick={handleLogout}
-                to={"/"}
+                to={"/login"}
                 className="text-lg font-medium py-3 px-2 rounded hover:bg-base-300 transition"
               >
                 Logout

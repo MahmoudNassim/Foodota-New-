@@ -1,17 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 
 export default function ProfileAccord({ changeTextColor }) {
-  // const [token, setToken] = useState(false);
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   setToken(token);
-  // });
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
+    sessionStorage.clear();
+    navigate("/");
   };
   return (
     <div className="relative group ">
@@ -23,7 +19,7 @@ export default function ProfileAccord({ changeTextColor }) {
         <div className="flex flex-col ">
           <Link
             className=" flex items-center gap-2 hover:underline hover:translate-x-2.5 transition-all duration-[400ms] text-black"
-            to={"/orders"}
+            to={"/restaurants/orders"}
           >
             <FaCartShopping />
             Your Orders
