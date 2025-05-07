@@ -14,7 +14,7 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Angelina John Doe",
+    name: "Angelina John",
     role: "Master Chef",
     image: team2,
   },

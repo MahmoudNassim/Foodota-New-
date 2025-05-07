@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
+import PaymentForm from "../components/CreditCard";
 
 export default function CheckOut() {
   useEffect(() => {
     sessionStorage.removeItem("redirect");
   }, []);
-  return <div>CheckOut</div>;
+  return (
+    <div>
+      <PaymentForm />
+    </div>
+  );
 }
