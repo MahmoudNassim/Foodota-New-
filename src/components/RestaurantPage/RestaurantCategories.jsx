@@ -12,6 +12,9 @@ export default function RestaurantCategories() {
   useEffect(() => {
     setProducts();
   }, []);
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   const AddTtoCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];

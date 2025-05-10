@@ -17,7 +17,7 @@ export default function RegisterAccordion({ changeTextColor }) {
           </Link>
           <Link
             className="hover:underline hover:translate-x-2.5 transition-all duration-[400ms] text-black"
-            to={"/"}
+            to={"/vendor/login"}
           >
             Vendor MemberShip
           </Link>
