@@ -13,6 +13,8 @@ import Profile from "./pages/OrderPage";
 import CheckOut from "./pages/CheckOut";
 import VendorLoginPage from "./pages/vendorLoginPage";
 import VendorMembers from "./pages/VendorMembers";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import CartOffcanvas from "./components/ShoppingCart/cartOffCanvas";
 
 export default function App() {
   const location = useLocation();
@@ -59,6 +61,8 @@ export default function App() {
       {!hideHeaderFooter && <Footer />}
 
       <ArrowUp />
+      <ShoppingCart />
+      <CartOffcanvas />
     </div>
   );
 }

@@ -1,43 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import span from "../../assets/images/span.png";
 import { useParams } from "react-router-dom";
-import { domain, useProducts } from "../../store/store";
-import Swal from "sweetalert2";
+import { domain, useProducts, useCart } from "../../store/store";
 
 export default function RestaurantCategories() {
   const { products, setProducts } = useProducts();
+  const addToCart = useCart((state) => state.addToCart);
   const location = useParams();
-  const path = location.documentId; //Food20%Italian
+  const path = location.documentId;
 
   useEffect(() => {
     setProducts();
   }, []);
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
-
-  const AddTtoCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let index = cart.findIndex((el) => el.documentId == product.documentId);
-    if (index == -1) {
-      cart.push({ ...product, qty: 1 });
-      Swal.fire({
-        icon: "success",
-        title: "Added To Cart",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } else {
-      cart[index].qty++;
-      Swal.fire({
-        icon: "info",
-        title: "Qty increased",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
 
   return (
     <div className="col-span-9 max-lg:mt-3.5 max-lg:col-span-12 bg-white rounded-[10px] p-5 flex flex-col gap-3">
@@ -77,9 +51,7 @@ export default function RestaurantCategories() {
                   </p>
                   <div className="flex justify-center items-center gap-2 mt-4">
                     <button
-                      onClick={() => {
-                        AddTtoCart(el);
-                      }}
+                      onClick={() => addToCart(el)}
                       className="btn btn-warning text-black hover:bg-black hover:text-white transition-all duration-[400ms] px-4 py-2 w-[200px] max-md:w-[120px] max-md:h-[40px]"
                     >
                       Add to Cart

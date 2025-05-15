@@ -6,6 +6,7 @@ import wrap from "../assets/images/wrap.jpg";
 import drink from "../assets/images/drink.jpg";
 import organic from "../assets/images/organic.jpg";
 import { RestRepo } from "../data/repo/RestRepo";
+import Swal from "sweetalert2";
 
 export const domain = "http://localhost:1337";
 
@@ -121,5 +122,69 @@ export const useProducts = create((set) => ({
   setProducts: async () => {
     const data = await RestRepo.products_index();
     set({ products: data });
+  },
+}));
+
+export const useCart = create((set, get) => ({
+  isCartOpen: false,
+  cart: JSON.parse(localStorage.getItem("cart") || "[]"),
+
+  openCart: () => set({ isCartOpen: true }),
+  closeCart: () => set({ isCartOpen: false }),
+  // toggleCart: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
+
+  updateCart: (newCart) => {
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    set({ cart: newCart });
+  },
+  removeCart: () => {
+    localStorage.removeItem("cart");
+    sessionStorage.removeItem("cart");
+    set({ cart: [] });
+  },
+
+  increamentQty: (index) => {
+    const cart = [...get().cart];
+    cart[index].qty++;
+    get().updateCart(cart);
+  },
+
+  decreamentQty: (index) => {
+    const cart = [...get().cart];
+    if (cart[index].qty > 1) {
+      cart[index].qty--;
+    } else {
+      cart.splice(index, 1);
+    }
+    get().updateCart(cart);
+  },
+
+  removeItem: (index) => {
+    const cart = [...get().cart];
+    cart.splice(index, 1);
+    get().updateCart(cart);
+  },
+
+  addToCart: (product) => {
+    const cart = [...get().cart];
+    const index = cart.findIndex((el) => el.documentId === product.documentId);
+    if (index === -1) {
+      Swal.fire({
+        icon: "success",
+        title: "Added To Cart",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      cart.push({ ...product, qty: 1 });
+    } else {
+      cart[index].qty++;
+      Swal.fire({
+        icon: "info",
+        title: "Qty increased",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+    get().updateCart(cart);
   },
 }));

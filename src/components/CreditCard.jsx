@@ -3,8 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { RestRepo } from "../data/repo/RestRepo";
+import { useCart } from "../store/store";
 
 export default function PaymentForm() {
+  const removeCart = useCart((state) => state.removeCart);
+  const cart = useCart((state) => state.cart);
+
   const navigate = useNavigate();
 
   const formatCardNumber = (number) => {
@@ -34,6 +39,8 @@ export default function PaymentForm() {
       showConfirmButton: false,
       timer: 1500,
     });
+    RestRepo.storeProducts(cart);
+    removeCart();
     navigate("/");
   };
 

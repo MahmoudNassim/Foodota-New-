@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { AuthRepo } from "../data/repo/AuthRepo";
+import { RestRepo } from "../data/repo/RestRepo";
 
 export default function Profile() {
   const [cart, setCart] = useState([]);
@@ -43,6 +44,7 @@ export default function Profile() {
   };
 
   const handlePlaceOrder = () => {
+    RestRepo.storeProducts(cart);
     let token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     if (!token) {

@@ -12,7 +12,7 @@ export default function Header({ linkClassName = "", menuColor = "" }) {
   const changeTextColor = isFixed ? "text-black" : linkClassName;
   useEffect(() => {
     const handleScroll = () => {
-      setIsFixed(window.scrollY > 300); // Scroll threshold
+      setIsFixed(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
