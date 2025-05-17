@@ -131,7 +131,6 @@ export const useCart = create((set, get) => ({
 
   openCart: () => set({ isCartOpen: true }),
   closeCart: () => set({ isCartOpen: false }),
-  // toggleCart: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
 
   updateCart: (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));

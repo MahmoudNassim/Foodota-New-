@@ -11,7 +11,6 @@ export const tokenCheck = async (token) => {
     })
     .then((res) => {
       userInfo = res.data;
-      console.log(userInfo);
     })
     .catch(() => {
       localStorage.clear();

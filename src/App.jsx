@@ -21,11 +21,12 @@ export default function App() {
   const path = location.pathname;
 
   const token = localStorage.getItem("token");
-  const hideHeaderFooter = path === "/vendor" || path === "/";
+  const hideHeader = path === "/vendor" || path === "/";
+  const hideFooter = path === "/vendor";
 
   return (
     <div className="w-full min-h-screen">
-      {!hideHeaderFooter && <Header linkClassName="text-black" />}
+      {!hideHeader && <Header linkClassName="text-black" />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -58,7 +59,7 @@ export default function App() {
         />
       </Routes>
 
-      {!hideHeaderFooter && <Footer />}
+      {!hideFooter && <Footer />}
 
       <ArrowUp />
       <ShoppingCart />
