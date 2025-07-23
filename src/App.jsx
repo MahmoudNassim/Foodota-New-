@@ -11,8 +11,6 @@ import Header from "./components/Header/Header";
 import LoginPage from "./pages/LoginPage";
 import Profile from "./pages/OrderPage";
 import CheckOut from "./pages/CheckOut";
-import VendorLoginPage from "./pages/vendorLoginPage";
-import VendorMembers from "./pages/VendorMembers";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import CartOffcanvas from "./components/ShoppingCart/cartOffCanvas";
 
@@ -21,8 +19,7 @@ export default function App() {
   const path = location.pathname;
 
   const token = localStorage.getItem("token");
-  const hideHeader = path === "/vendor" || path === "/";
-  const hideFooter = path === "/vendor";
+  const hideHeader = path === "/";
 
   return (
     <div className="w-full min-h-screen">
@@ -32,20 +29,12 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/restaurants/orders" element={<Profile />} />
         <Route path="/restaurants/orders/checkout" element={<CheckOut />} />
-        <Route path="/vendor/register/checkout" element={<CheckOut />} />
         <Route
           path="/login"
           element={token ? <Navigate to="/" /> : <LoginPage />}
         />
         <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="/vendor"
-          element={token ? <VendorMembers /> : <Navigate to="/vendor/login" />}
-        />
-        <Route
-          path="/vendor/login"
-          element={token ? <Navigate to="/vendor" /> : <VendorLoginPage />}
-        />
+        <Route path="/vendor" element={<h1>Vendor MemberShip</h1>} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/restaurants" element={<AllVendors />} />
         <Route path="/restaurants/:documentId" element={<RestaurantPage />} />
@@ -59,7 +48,7 @@ export default function App() {
         />
       </Routes>
 
-      {!hideFooter && <Footer />}
+      <Footer />
 
       <ArrowUp />
       <ShoppingCart />

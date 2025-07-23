@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { TbMenu3 } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -7,8 +7,9 @@ export default function Drawer({ menuColor }) {
   const mobileLinks = [
     { id: 1, to: "/", label: "Home Page" },
     { id: 2, to: "/login", label: "Registration" },
-    { id: 3, to: "/blog", label: "Blog" },
-    { id: 4, to: "/restaurants", label: "All Vendors" },
+    { id: 3, to: "/vendor", label: "Vendor MemberShip" },
+    { id: 4, to: "/blog", label: "Blog" },
+    { id: 5, to: "/restaurants", label: "All Vendors" },
   ];
 
   const [token, setToken] = useState(false);
