@@ -16,7 +16,6 @@ A modern food ordering platform built with **React** & **Tailwind CSS** for the 
 - **API:** RESTful API
 
 ## 📷 Screenshots
-*(Add images or GIFs here showing the UI)*
 
 ## ⚙️ Installation & Setup
 ```bash
