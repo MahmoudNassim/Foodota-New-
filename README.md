@@ -14,7 +14,7 @@ A modern food ordering platform built with **React** & **Tailwind CSS** for the 
 - **Backend:** Strapi (Headless CMS)
 - **API:** RESTful API
 
-## 📷 Screenshots
+## 📷 ScreenRecord
 [📂 Google Drive](https://drive.google.com/file/d/1roJoHvGIF36uHo_-GD4UVfakKwEPSfUj/view?usp=sharing)
 
 ## ⚙️ Installation & Setup
