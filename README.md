@@ -12,7 +12,7 @@ A modern food ordering platform built with **React** & **Tailwind CSS** for the 
 ## 🛠 Tech Stack
 - **Frontend:** React, Tailwind CSS
 - **Backend:** Strapi (Headless CMS)
-- **Database:** SQLite / PostgreSQL (depending on Strapi config)
+- **Database:** Strapi
 - **API:** RESTful API
 
 ## 📷 Screenshots
