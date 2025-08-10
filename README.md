@@ -1,6 +1,6 @@
 # 🍔 FOODOTA | Restaurant Product Listing & Ordering Platform
 
-A modern food ordering platform built with **React** & **Tailwind CSS** for the frontend and **Strapi** as the backend CMS.
+Foodota is a modern web platform that allows users to browse restaurants, explore product listings, and place orders seamlessly. It features a responsive UI built with Tailwind CSS, global state management using Zustand, and a fully integrated backend powered by Strapi CMS. The platform includes a shopping cart system, restaurant and product filters, and optimized SEO for better discoverability.
 
 ## 🚀 Features
 - 📱 **Responsive UI** – Mobile-friendly design using Tailwind CSS.
